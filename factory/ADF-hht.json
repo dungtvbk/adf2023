@@ -1,0 +1,20 @@
+{
+	"name": "ADF-hht",
+	"properties": {
+		"globalParameters": {
+			"global": {
+				"type": "string",
+				"value": "org-name"
+			}
+		},
+		"globalConfigurations": {
+			"PipelineBillingEnabled": "true"
+		}
+	},
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "d2a57331-4373-4d77-8512-4c701e61752c",
+		"tenantId": "31d02b5f-ed57-4f26-93cd-233eef53b64a"
+	}
+}

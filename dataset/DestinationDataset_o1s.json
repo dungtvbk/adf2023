@@ -1,0 +1,42 @@
+{
+	"name": "DestinationDataset_o1s",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLake",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"vos": {
+				"type": "String",
+				"defaultValue": "vos"
+			},
+			"voc": {
+				"type": "String",
+				"defaultValue": "voc"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@addMinutes(utcnow(), -5)",
+					"type": "Expression"
+				},
+				"fileSystem": {
+					"value": "@dataset().vos",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ";",
+			"compressionCodec": "bzip2",
+			"compressionLevel": "Fastest",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": null
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,95 @@
+{
+	"name": "CopyPipeline_o1s",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy from mySQL to Azure blob Gen2",
+				"description": "alo",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "`vos_review_ratings_v3`"
+					},
+					{
+						"name": "Destination",
+						"value": "voc"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "MySqlSource",
+						"query": {
+							"value": "@pipeline().parameters.row",
+							"type": "Expression"
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings",
+							"copyBehavior": "FlattenHierarchy"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_o1s",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_o1s",
+						"type": "DatasetReference",
+						"parameters": {
+							"vos": "vos",
+							"voc": "voc"
+						}
+					}
+				]
+			}
+		],
+		"parameters": {
+			"row": {
+				"type": "string",
+				"defaultValue": "select * from vos_review_ratings_v3"
+			}
+		},
+		"variables": {
+			"row": {
+				"type": "String",
+				"defaultValue": "'12876084'"
+			},
+			"cot": {
+				"type": "String",
+				"defaultValue": "'12876084'"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2023-08-16T05:01:39Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

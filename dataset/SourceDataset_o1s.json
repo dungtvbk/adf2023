@@ -1,0 +1,16 @@
+{
+	"name": "SourceDataset_o1s",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "MySqlgcp",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "MySqlTable",
+		"schema": [],
+		"typeProperties": {
+			"tableName": "`vos_review_ratings_v3`"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
