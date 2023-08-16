@@ -85,7 +85,7 @@
 			},
 			"cot": {
 				"type": "String",
-				"defaultValue": "'128760841'"
+				"defaultValue": "'12876081'"
 			}
 		},
 		"annotations": [],
