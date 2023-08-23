@@ -60,7 +60,13 @@
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> select1",
-				"InvestorBalances select(skipDuplicateMapInputs: true,",
+				"InvestorBalances select(mapColumn(",
+				"          InvestorId,",
+				"          FundId,",
+				"          CurrentNN,",
+				"          CurrentSP",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: false) ~> select2"
 			]
 		}
