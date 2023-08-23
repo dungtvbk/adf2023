@@ -35,7 +35,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "VW_Areas"
+			"table": "VW_DAAccountBalanceHistories"
 		}
 	}
 }
