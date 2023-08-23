@@ -10,15 +10,43 @@
 						"type": "DatasetReference"
 					},
 					"name": "InvestorBalances"
+				},
+				{
+					"dataset": {
+						"referenceName": "DAAccountBalances",
+						"type": "DatasetReference"
+					},
+					"name": "DAAccountBalances"
 				}
 			],
 			"sinks": [],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "select1"
+				}
+			],
 			"scriptLines": [
+				"source(output(",
+				"          Id as long,",
+				"          InvestorId as long,",
+				"          FundId as integer,",
+				"          CurrentNN as decimal(22,6),",
+				"          CurrentSP as decimal(22,6)",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> InvestorBalances",
 				"source(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
-				"     format: 'table') ~> InvestorBalances"
+				"     format: 'table') ~> DAAccountBalances",
+				"InvestorBalances select(mapColumn(",
+				"          CurrentNN,",
+				"          CurrentSP",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1"
 			]
 		}
 	}
