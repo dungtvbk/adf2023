@@ -1,0 +1,41 @@
+{
+	"name": "dcx",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "DCX_AzureSqlDatabase",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "OrganizationId",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CreationTime",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "LastModificationTime",
+				"type": "datetime2",
+				"scale": 7
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "VW_Areas"
+		}
+	}
+}
