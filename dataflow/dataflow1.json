@@ -6,30 +6,37 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "dcx",
+						"referenceName": "InvestorBalances",
 						"type": "DatasetReference"
 					},
-					"name": "areas"
+					"name": "InvestorBalances"
+				},
+				{
+					"name": "source1"
 				}
 			],
 			"sinks": [],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "TotalFundcertificate"
+				}
+			],
 			"scriptLines": [
-				"source(output(",
-				"          Id as integer,",
-				"          OrganizationId as integer,",
-				"          Name as string,",
-				"          CreationTime as timestamp,",
-				"          LastModificationTime as timestamp",
-				"     ),",
-				"     allowSchemaDrift: true,",
+				"source(allowSchemaDrift: true,",
 				"     validateSchema: true,",
 				"     limit: 1000,",
-				"     enableCdc: true,",
-				"     mode: 'read',",
+				"     enableNativeCdc: true,",
+				"     netChanges: true,",
 				"     skipInitialLoad: true,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
-				"     format: 'table') ~> areas"
+				"     format: 'table') ~> InvestorBalances",
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false) ~> source1",
+				"InvestorBalances join(ERROR_FUNCTION('') == ERROR_FUNCTION(''),",
+				"     joinType:'inner',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> TotalFundcertificate"
 			]
 		}
 	}

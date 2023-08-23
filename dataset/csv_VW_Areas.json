@@ -5,6 +5,9 @@
 			"referenceName": "drdbchht",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "DX"
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {

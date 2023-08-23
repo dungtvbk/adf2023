@@ -44,7 +44,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "dcx",
+						"referenceName": "InvestorBalances",
 						"type": "DatasetReference"
 					}
 				],
@@ -56,9 +56,16 @@
 				]
 			},
 			{
-				"name": "Data flow1",
+				"name": "DC dataflow",
 				"type": "ExecuteDataFlow",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "copy data from DCX",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,
@@ -68,11 +75,18 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
+					"dataflow": {
+						"referenceName": "dataflow1",
+						"type": "DataFlowReference"
+					},
 					"compute": {
 						"coreCount": 8,
 						"computeType": "General"
 					},
-					"traceLevel": "Fine"
+					"traceLevel": "Fine",
+					"continuationSettings": {
+						"customizedCheckpointKey": "b4514e09-d391-4bf4-9fce-84e92374d5ff"
+					}
 				}
 			}
 		],

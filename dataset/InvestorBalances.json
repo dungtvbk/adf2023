@@ -5,6 +5,9 @@
 			"referenceName": "DCX_AzureSqlDatabase",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "DX"
+		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [],
