@@ -40,8 +40,18 @@
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     format: 'table') ~> InvestorBalances",
-				"source(allowSchemaDrift: true,",
+				"source(output(",
+				"          Id as integer,",
+				"          DistributionAgentAccountId as integer,",
+				"          FundId as integer,",
+				"          QuantityNN as decimal(22,6),",
+				"          QuantitySIP as decimal(22,6),",
+				"          CreationTime as timestamp,",
+				"          LastModificationTime as timestamp",
+				"     ),",
+				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
+				"     limit: 100,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     format: 'table') ~> DAAccountBalances",
 				"InvestorBalances select(mapColumn(",
@@ -50,7 +60,7 @@
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> select1",
-				"DAAccountBalances select(skipDuplicateMapInputs: true,",
+				"InvestorBalances select(skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: false) ~> select2"
 			]
 		}
