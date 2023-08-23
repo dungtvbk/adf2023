@@ -22,10 +22,10 @@
 			"sinks": [],
 			"transformations": [
 				{
-					"name": "select1"
+					"name": "select3"
 				},
 				{
-					"name": "select3"
+					"name": "select4"
 				}
 			],
 			"scriptLines": [
@@ -54,19 +54,21 @@
 				"     limit: 100,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     format: 'table') ~> DAAccountBalances",
-				"InvestorBalances select(mapColumn(",
-				"          CurrentNN,",
-				"          CurrentSP",
-				"     ),",
-				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: false) ~> select1",
 				"DAAccountBalances select(mapColumn(",
 				"          FundId,",
 				"          QuantityNN,",
 				"          QuantitySIP",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> select3"
+				"     skipDuplicateMapOutputs: true) ~> select3",
+				"InvestorBalances select(mapColumn(",
+				"          InvestorId,",
+				"          FundId,",
+				"          CurrentNN,",
+				"          CurrentSP",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select4"
 			]
 		}
 	}
