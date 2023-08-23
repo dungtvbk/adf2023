@@ -17,6 +17,27 @@
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
-		"schema": []
+		"schema": [
+			{
+				"name": "Id",
+				"type": "String"
+			},
+			{
+				"name": "OrganizationId",
+				"type": "String"
+			},
+			{
+				"name": "Name",
+				"type": "String"
+			},
+			{
+				"name": "CreationTime",
+				"type": "String"
+			},
+			{
+				"name": "LastModificationTime",
+				"type": "String"
+			}
+		]
 	}
 }
