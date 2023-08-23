@@ -1,0 +1,19 @@
+{
+	"name": "Yusers",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "DCX_AzureSqlDatabase",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "DX"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "VW_YUsers"
+		}
+	}
+}
