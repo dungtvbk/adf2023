@@ -6,7 +6,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "csv_VW_Areas",
+						"referenceName": "dcx",
 						"type": "DatasetReference"
 					},
 					"name": "areas"
@@ -15,14 +15,21 @@
 			"sinks": [],
 			"transformations": [],
 			"scriptLines": [
-				"source(allowSchemaDrift: true,",
+				"source(output(",
+				"          Id as integer,",
+				"          OrganizationId as integer,",
+				"          Name as string,",
+				"          CreationTime as timestamp,",
+				"          LastModificationTime as timestamp",
+				"     ),",
+				"     allowSchemaDrift: true,",
 				"     validateSchema: true,",
 				"     limit: 1000,",
-				"     ignoreNoFilesFound: false,",
 				"     enableCdc: true,",
 				"     mode: 'read',",
 				"     skipInitialLoad: true,",
-				"     skipLines: 1) ~> areas"
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> areas"
 			]
 		}
 	}
