@@ -1,5 +1,5 @@
 {
-	"name": "dcx",
+	"name": "InvestorBalances",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "DCX_AzureSqlDatabase",
@@ -7,35 +7,10 @@
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
-		"schema": [
-			{
-				"name": "Id",
-				"type": "int",
-				"precision": 10
-			},
-			{
-				"name": "OrganizationId",
-				"type": "int",
-				"precision": 10
-			},
-			{
-				"name": "Name",
-				"type": "nvarchar"
-			},
-			{
-				"name": "CreationTime",
-				"type": "datetime2",
-				"scale": 7
-			},
-			{
-				"name": "LastModificationTime",
-				"type": "datetime2",
-				"scale": 7
-			}
-		],
+		"schema": [],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "VW_DAAccountBalanceHistories"
+			"table": "VW_InvestorBalances"
 		}
 	}
 }
