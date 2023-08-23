@@ -4,7 +4,7 @@
 		"activities": [
 			{
 				"name": "Copy from mySQL to Azure blob Gen2",
-				"description": "alo",
+				"description": "VOS",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
