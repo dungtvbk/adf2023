@@ -59,7 +59,7 @@
 				"          CurrentSP",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> select1",
+				"     skipDuplicateMapOutputs: false) ~> select1",
 				"DAAccountBalances select(mapColumn(",
 				"          FundId,",
 				"          QuantityNN,",
