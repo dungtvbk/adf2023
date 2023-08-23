@@ -25,7 +25,7 @@
 					"name": "select1"
 				},
 				{
-					"name": "select2"
+					"name": "select3"
 				}
 			],
 			"scriptLines": [
@@ -60,14 +60,13 @@
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> select1",
-				"InvestorBalances select(mapColumn(",
-				"          InvestorId,",
+				"DAAccountBalances select(mapColumn(",
 				"          FundId,",
-				"          CurrentNN,",
-				"          CurrentSP",
+				"          QuantityNN,",
+				"          QuantitySIP",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: false) ~> select2"
+				"     skipDuplicateMapOutputs: true) ~> select3"
 			]
 		}
 	}
