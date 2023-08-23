@@ -22,10 +22,10 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "csv_VW_Areas",
+						"referenceName": "Totalfundcertificate",
 						"type": "DatasetReference"
 					},
-					"name": "sink1"
+					"name": "TotalFundcertificate"
 				}
 			],
 			"transformations": [
@@ -87,18 +87,11 @@
 				"     broadcast: 'auto')~> join1",
 				"join1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     input(",
-				"          Id as string,",
-				"          OrganizationId as string,",
-				"          Name as string,",
-				"          CreationTime as string,",
-				"          LastModificationTime as string",
-				"     ),",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> sink1"
+				"     skipDuplicateMapOutputs: true) ~> TotalFundcertificate"
 			]
 		}
 	}
