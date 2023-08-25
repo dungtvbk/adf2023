@@ -1,0 +1,9 @@
+{
+	"name": "DCPOC",
+	"location": "southeastasia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "5ed0dac3-9885-421d-99da-57953225aea8",
+		"tenantId": "001dd846-ba92-4fac-971b-ef8098e06bb5"
+	}
+}
